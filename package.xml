@@ -19,7 +19,11 @@
     <buildtool_depend>cmake</buildtool_depend>
 
     <depend>eigen</depend>
-    <depend>libg2o</depend>
+    <!-- Upstream lists libg2o here (a rosdep/apt key), assuming g2o comes from a system package.
+         We build g2o from source as a sibling colcon package instead (Ubuntu's libg2o-dev has no
+         CMake config exports, see main VSLAM_package README "已知眉角"), so this points at that
+         package name instead so colcon orders the workspace build correctly. -->
+    <depend>g2o</depend>
     <depend>libopencv-dev</depend>
     <depend>yaml-cpp</depend>
     <depend>libsqlite3-dev</depend>
